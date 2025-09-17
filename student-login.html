@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Login — DisasterReady</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="login-container">
-    <h2>Student Login</h2>
-    <form onsubmit="loginStudent(event)">
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <button class="btn" type="submit">Login</button>
-    </form>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Student Login</h2>
+
+      <div id="saved-email-area" class="saved-email-area" style="display:none">
+        <div class="label">Use saved email:</div>
+        <button id="use-saved-email" class="chip"></button>
+      </div>
+
+      <form id="student-login-form" onsubmit="loginStudent(event)">
+        <label class="field-label">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required>
+
+        <label class="field-label">Password</label>
+        <input id="password" type="password" placeholder="Enter password" required>
+
+        <button class="btn btn-primary" type="submit">Log In</button>
+      </form>
+
+      <p class="hint">Don't have an account? Ask your teacher to create one.</p>
+      <a class="link-back" href="index.html">← Back to Home</a>
+    </div>
   </div>
+
   <script src="script.js"></script>
   <script>
-    // Pre-fill email if saved
-    const savedEmail = localStorage.getItem('studentEmail');
-    if (savedEmail) document.getElementById('email').value = savedEmail;
+    // show saved email chip if present
+    const saved = localStorage.getItem('studentEmail');
+    if (saved) {
+      document.getElementById('saved-email-area').style.display = 'flex';
+      document.getElementById('use-saved-email').textContent = saved;
+      document.getElementById('use-saved-email').onclick = () => {
+        document.getElementById('email').value = saved;
+      };
+    }
   </script>
 </body>
 </html>
