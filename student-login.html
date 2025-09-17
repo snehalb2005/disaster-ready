@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Login - DisasterReady</title>
+  <title>Student Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="login-container">
     <h2>Student Login</h2>
-    <form onsubmit="return false;">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button class="btn" onclick="window.location.href='student-dashboard.html'">Login</button>
+    <form onsubmit="loginStudent(event)">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button class="btn" type="submit">Login</button>
     </form>
   </div>
+  <script src="script.js"></script>
+  <script>
+    // Pre-fill email if saved
+    const savedEmail = localStorage.getItem('studentEmail');
+    if (savedEmail) document.getElementById('email').value = savedEmail;
+  </script>
 </body>
 </html>
-
