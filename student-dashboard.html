@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Dashboard — DisasterReady</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <h1>Student Dashboard</h1>
+<body class="dashboard-page">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">DisasterReady</div>
+      <div class="right">
+        <span id="welcome-email" class="welcome-email"></span>
+        <a class="btn-small" href="index.html">Home</a>
+      </div>
+    </div>
   </header>
-  <section class="dashboard">
-    <h2>Gamified Lessons</h2>
-    <ul id="lesson-list"></ul>
-  </section>
+
+  <main class="container">
+    <section class="dashboard-tiles">
+      <div class="tile" data-key="lessons" onclick="showCategory('lessons')">
+        <div class="tile-icon">🎮</div>
+        <h3>Gamified Lessons</h3>
+        <p>7 short, practical lessons.</p>
+      </div>
+      <div class="tile" data-key="quizzes" onclick="showCategory('quizzes')">
+        <div class="tile-icon">📝</div>
+        <h3>Quizzes</h3>
+        <p>Quick checks to earn points.</p>
+      </div>
+      <div class="tile" data-key="badges" onclick="showCategory('badges')">
+        <div class="tile-icon">🏅</div>
+        <h3>Badges</h3>
+        <p>Earned rewards and progress.</p>
+      </div>
+      <div class="tile" data-key="drills" onclick="showCategory('drills')">
+        <div class="tile-icon">🚨</div>
+        <h3>Drill Simulations</h3>
+        <p>Practice evacuation & response.</p>
+      </div>
+    </section>
+
+    <section id="content-area" class="content-area">
+      <!-- content injected by script.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year2"></span> DisasterReady</div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
   <script>
-    // Load lesson titles from lessons.json
-    fetch('lessons.json')
-      .then(res => res.json())
-      .then(data => {
-        const list = document.getElementById('lesson-list');
-        data.forEach((lesson, index) => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="lesson.html?id=${index}">${lesson.title}</a>`;
-          list.appendChild(li);
-        });
-      });
+    document.getElementById('year2').textContent = new Date().getFullYear();
+    // show saved email
+    const se = localStorage.getItem('studentEmail');
+    document.getElementById('welcome-email').textContent = se ? `Signed in as ${se}` : '';
+    // default view
+    showCategory('lessons');
   </script>
 </body>
 </html>
