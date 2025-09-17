@@ -1,42 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lesson — DisasterReady</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gamified Lessons</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="lesson-page">
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">DisasterReady</div>
-      <nav class="nav">
-        <a href="student-dashboard.html">← Dashboard</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container lesson-wrapper">
-    <article class="lesson-article">
-      <h1 id="lesson-title"></h1>
-      <div id="lesson-body" class="lesson-body"></div>
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div>© <span id="year3"></span> DisasterReady</div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('year3').textContent = new Date().getFullYear();
-    // load lesson using LESSONS in script.js
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id') || '0', 10);
-    loadLessonById(id);
-  </script>
+<body>
+<header><h1>Gamified Lessons</h1></header>
+<main>
+<ul class="lessons">
+  <li>Lesson 1: Disaster Awareness</li>
+  <li>Lesson 2: Safety Plans</li>
+  <li>Lesson 3: Emergency Contacts</li>
+  <li>Lesson 4: Earthquake Preparedness</li>
+  <li>Lesson 5: Flood Safety</li>
+  <li>Lesson 6: First Aid Basics</li>
+  <li>Lesson 7: Recovery & Support</li>
+</ul>
+</main>
 </body>
 </html>
