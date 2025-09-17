@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DisasterReady</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DisasterReady — Home</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="landing">
-  <header>
-    <h1>DisasterReady</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Resources</a>
-      <a href="#">Contact</a>
-    </nav>
+<body class="page-root">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">DisasterReady</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="#">Resources</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Be Ready Before Disaster Strikes</h2>
-      <p>Interactive education on preparedness, response, and recovery.</p>
-      <div class="buttons">
-        <a href="teacher-login.html" class="btn">Teacher Portal</a>
-        <a href="student-login.html" class="btn secondary">Student Portal</a>
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-card">
+          <h1 class="hero-title">Be Ready Before Disaster Strikes</h1>
+          <p class="hero-sub">
+            Interactive education on preparedness, response and recovery — built for schools.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="teacher-login.html">Teacher Portal</a>
+            <a class="btn btn-ghost" href="student-login.html">Student Portal</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    © 2025 DisasterReady. All rights reserved.
+    <!-- Quick features -->
+    <section class="features container">
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">📚</div>
+          <h3>Structured Lessons</h3>
+          <p>Curriculum-aligned lessons for students — short, clear and practice focused.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">🧭</div>
+          <h3>Practical Drills</h3>
+          <p>Simulations and drills to build muscle memory so students act without panic.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">🏅</div>
+          <h3>Quizzes & Badges</h3>
+          <p>Short quizzes + badges to motivate learning and track progress.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> DisasterReady — All Rights Reserved</div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
