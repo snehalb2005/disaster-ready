@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Login - DisasterReady</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teacher Login — DisasterReady</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="login-container">
-    <h2>Teacher Login</h2>
-    <form onsubmit="return false;">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button class="btn" onclick="alert('Teacher logged in!')">Login</button>
-    </form>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Teacher Login</h2>
+      <form onsubmit="return false;">
+        <label class="field-label">Email</label>
+        <input type="email" placeholder="teacher@example.com" required>
+
+        <label class="field-label">Password</label>
+        <input type="password" placeholder="Password" required>
+
+        <button class="btn btn-primary" onclick="alert('Teacher area placeholder')">Log In</button>
+      </form>
+      <a class="link-back" href="index.html">← Back to Home</a>
+    </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
